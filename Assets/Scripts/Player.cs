@@ -3,7 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
 
-public class Player : NetworkBehaviour
+var SpawnPoint : Transform;
+var respawn : boolean = false;
+var Player: int;
+
+public class Player: NetworkBehaviour
 {
     void HandleMovement(){
         if (isLocalPlayer){
@@ -17,5 +21,29 @@ public class Player : NetworkBehaviour
     void Update(){
         HandleMovement();
     }
+   
+   function Update(){
+ 
+    if(Player<= 0)
+    {
+    respawn = true;
+    }
+    //else
+    //{
+    //respawn = false;
+    //}
+ 
+     if(respawn)
+     {
+ 
+     transform.position = SpawnPoint.transform.position;
+ 
+     }
+ }
 }
+<<<<<<< Updated upstream:Assets/Scripts/Player.cs
 
+=======
+ 
+ 
+>>>>>>> Stashed changes:Assets/New Folder/Player.cs
